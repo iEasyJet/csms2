@@ -1,0 +1,14 @@
+@import '../../index.scss';
+
+.app {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $primary-color;
+  width: 200vw;
+  height: 100vh;
+
+  transition: all 0.8s linear;
+}

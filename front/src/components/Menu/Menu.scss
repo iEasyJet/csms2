@@ -1,0 +1,38 @@
+@import '../../index.scss';
+
+.menu {
+  position: fixed;
+  background-color: $primary-color;
+  list-style-type: none;
+
+  left: 0;
+  right: 0;
+  top: 15px;
+
+  @include dFlex();
+  flex-direction: row;
+  z-index: 2;
+
+  &__item {
+    @include fontsOswald();
+    
+    display: block;
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 5px 15px;
+    text-align: center;
+
+    transition: all 0.2s linear;
+
+    &:hover {
+      border: 2px solid $boxShadow-color;
+      box-shadow: 0 5px 0 $boxShadow-color;
+      cursor: pointer;
+    }
+
+    &_active {
+      color: $boxShadow-color;
+      border-color: $boxShadow-color;
+    }
+  }
+}

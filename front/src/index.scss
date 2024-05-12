@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+$primary-color: black;
+$boxShadow-color: red;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: $primary-color;
+  overflow: hidden;
+}
+
+@mixin fontsOswald() {
+  font-family: 'Oswald', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+  font-size: 20px;
+}
+
+@mixin dFlex() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@mixin button() {
+  color: $primary-color;
+  align-self: center;
+  padding: 5px 10px;
+  border: 2px solid white;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.2s linear;
+
+  &:not([disabled]):hover {
+    cursor: pointer;
+    box-shadow: 0px 5px 0 $boxShadow-color;
+    border-color: $boxShadow-color;
+  }
+}

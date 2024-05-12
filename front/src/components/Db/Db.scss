@@ -1,0 +1,88 @@
+@import '../../index.scss';
+
+.db {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: $primary-color;
+
+  @include dFlex();
+  gap: 30px;
+  overflow: hidden;
+  transition: all 0.8s linear;
+
+  &__title {
+    @include fontsOswald();
+    font-size: 30px;
+    text-align: center;
+  }
+
+  &__text {
+    @include dFlex();
+    @include fontsOswald();
+    min-width: 110px;
+    align-items: flex-start;
+  }
+
+  &__label {
+    @include dFlex();
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  &__inputs-wrapper {
+    @include dFlex();
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  &__input-select {
+    height: 30px;
+    width: 200px;
+    @include fontsOswald();
+    color: $primary-color;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    text-align: center;
+    transition: all 0.2s linear;
+
+    &:focus {
+      box-shadow: 0 5px 0 $boxShadow-color;
+      outline: 2px solid $boxShadow-color;
+    }
+    &:hover {
+      outline: 2px solid $boxShadow-color;
+      box-shadow: 0 5px 0 $boxShadow-color;
+    }
+  }
+
+  &__input-text {
+    height: 30px;
+    width: 200px;
+    @include fontsOswald();
+    color: $primary-color;
+    border: none;
+    outline: none;
+    padding: 2px 5px;
+    transition: all 0.2s linear;
+    text-align: center;
+    border-radius: 5px;
+
+    &:focus {
+      box-shadow: 0 5px 0 $boxShadow-color;
+      outline: 2px solid $boxShadow-color;
+    }
+    &:hover {
+      outline: 2px solid $boxShadow-color;
+      box-shadow: 0 5px 0 $boxShadow-color;
+    }
+  }
+
+  &__input-btn {
+    @include fontsOswald();
+    @include button();
+    background-color: $primary-color;
+    color: white;
+  }
+}

@@ -1,0 +1,52 @@
+@import '../../index.scss';
+
+.modal-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+
+  background-color: rgba($primary-color, 0.8);
+
+  @include dFlex();
+
+  transition: all 0.6s linear;
+
+  visibility: hidden;
+  opacity: 0;
+
+  &_open {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__list {
+    @include fontsOswald();
+    @include dFlex();
+
+    background-color: $primary-color;
+
+    list-style: none;
+    width: 50vw;
+    height: 50vh;
+
+    border: 2px solid white;
+    border-radius: 5px;
+  }
+
+  &__item {
+    padding: 0 15px;
+    text-align: center;
+
+    &_red {
+      color: red;
+    }
+  }
+
+  &__img {
+    width: 80%;
+    display: block;
+  }
+}

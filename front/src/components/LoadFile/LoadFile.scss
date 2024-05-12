@@ -1,0 +1,50 @@
+@import '../../index.scss';
+
+.loading-file {
+  position: relative;
+  background-color: $primary-color;
+  width: 100vw;
+  height: 100vh;
+
+  @include dFlex();
+
+  &_disabled {
+    opacity: 0.5;
+  }
+
+  &__wrapper {
+    @include dFlex();
+    gap: 20px;
+  }
+
+  &__file {
+    display: none;
+  }
+
+  &__label {
+    position: relative;
+    @include button();
+    @include fontsOswald();
+  }
+
+  &__button {
+    @include button();
+    @include fontsOswald();
+    background-color: $primary-color;
+  }
+
+  &__info {
+    height: 40px;
+    width: 40px;
+    @include button();
+    @include fontsOswald();
+    border-radius: 50%;
+    text-align: center;
+    background-color: $primary-color;
+  }
+
+  &_load {
+    border-color: green;
+    color: green;
+  }
+}
