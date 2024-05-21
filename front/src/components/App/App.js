@@ -4,7 +4,7 @@ import Db from '../Db/Db';
 import api from '../utils/Api';
 import Menu from '../Menu/Menu';
 import LoadFile from '../LoadFile/LoadFile';
-/* import CreateTable from '../CreateTable/CreateTable'; */
+import CreateTable from '../CreateTable/CreateTable';
 
 function App() {
   const [move, setMove] = useState(0);
@@ -12,8 +12,6 @@ function App() {
   const [tableData, setTableData] = useState({
     name: '',
     data: [],
-    dataForSQL: [],
-    columnsType: [],
   });
   const tableNameRef = useRef('');
 
@@ -121,11 +119,11 @@ function App() {
     });
   }
 
-  function uploadFile(file) {
+/*   function uploadFile(file) {
     api.uploadFile(file).then((res) => {
       console.log(res);
     })
-  }
+  } */
 
   return (
     <div className='app' style={{ marginLeft: move + 'vw' }}>
@@ -143,15 +141,15 @@ function App() {
         isMove={isMove}
       />
 
-      <LoadFile setTableData={setTableData} tableData={tableData} uploadFile={uploadFile} />
+      <LoadFile setTableData={setTableData} tableData={tableData} />
 
-      {/* <CreateTable
+      <CreateTable
         tableCheck={tableCheck}
         tableData={tableData}
         createTable={createTable}
         insertData={insertData}
         connectionDB={connectionDB}
-      /> */}
+      />
     </div>
   );
 }

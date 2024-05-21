@@ -1,6 +1,7 @@
 import './LoadFile.scss';
 import { useRef, useState } from 'react';
 import ModalInfo from '../ModalInfo/ModalInfo';
+import readXlsxFile from 'read-excel-file';
 
 function LoadFile(props) {
   const [modalIfo, setModalInfo] = useState(false);
@@ -8,7 +9,7 @@ function LoadFile(props) {
 
   const [isLoadingFile, setIsLoadingFile] = useState({
     statusLoad: false,
-    textLoad: 'Отправить файл на сервер!',
+    textLoad: 'Обработать файл!',
   });
 
   const [selectFile, setSelectFile] = useState({
@@ -44,9 +45,7 @@ function LoadFile(props) {
 
   function uploadFile() {
     const file = inputRef.current.files[0];
-    const formData = new FormData();
-    
-    formData.append('file', file);
+
     setIsLoadingFile(
       (prev) =>
         (prev = {
@@ -54,7 +53,16 @@ function LoadFile(props) {
           textLoad: `Файл "${file.name}" загружен!`,
         })
     );
-    props.uploadFile(formData);
+
+    readXlsxFile(file).then((rows) => {
+      console.log(rows);
+      props.setTableData((prev) => {
+        return {
+        ...prev,
+        data: rows
+        }
+      })
+    })
   }
 
   function closeOnOverlay(e) {
